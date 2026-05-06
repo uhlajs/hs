@@ -22,7 +22,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="dist/output.css" />
@@ -49,65 +49,68 @@
         </script>
       </div>
       <nav class="hero__nav" aria-label="Hlavní navigace">
-        <div class="hero__nav-links">
-          <a href="#o-kurzu">O kurzu</a>
-          <a href="#galerie">Galerie</a>
-          <a href="#instruktori">Instruktoři</a>
-        </div>
-        <div class="hero__nav-socials">
-          <a
-            href="TODO_INSTAGRAM_URL"
-            target="_blank"
-            rel="noopener"
-            aria-label="Instagram"
-            class="hero__nav-icon"
-          >
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
+        <a href="#top" class="hero__brand" aria-label="Horolezecká škola Sherpa Climb">
+          <span class="hero__brand-eyebrow">Horolezecká škola</span>
+          <span class="hero__brand-name">Sherpa Climb</span>
+        </a>
+        <div class="hero__nav-right">
+          <div class="hero__nav-links">
+            <a href="#o-kurzu">O kurzu</a>
+            <a href="#galerie">Galerie</a>
+            <a href="#instruktori">Instruktoři</a>
+          </div>
+          <div class="hero__nav-socials">
+            <a
+              href="TODO_INSTAGRAM_URL"
+              target="_blank"
+              rel="noopener"
+              aria-label="Instagram"
+              class="hero__nav-icon"
             >
-              <rect x="3" y="3" width="18" height="18" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
-            </svg>
-          </a>
-          <a
-            href="TODO_FACEBOOK_URL"
-            target="_blank"
-            rel="noopener"
-            aria-label="Facebook"
-            class="hero__nav-icon"
-          >
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+              </svg>
+            </a>
+            <a
+              href="TODO_FACEBOOK_URL"
+              target="_blank"
+              rel="noopener"
+              aria-label="Facebook"
+              class="hero__nav-icon"
             >
-              <path
-                d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
-              />
-            </svg>
-          </a>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                />
+              </svg>
+            </a>
+          </div>
         </div>
       </nav>
       <div class="hero__content container-x">
-        <p class="eyebrow reveal">
-          <span class="hero__hl">Horolezecká škola Sherpa Climb</span>
-        </p>
-        <h1 class="h-display reveal mt-4 max-w-4xl">
+        <h1 class="h-display reveal max-w-4xl">
           <span class="hero__hl"
             >Nauč se lézt tam, kde&nbsp;to&nbsp;dává smysl.</span
           >
@@ -116,7 +119,9 @@
           class="reveal mt-6 max-w-2xl text-lg sm:text-xl"
           style="color: var(--color-ink-soft)"
         >
-          Jsme garantovaná horoškola ČHS s více než 25 letou historií.
+          <span class="hero__hl"
+            >Jsme garantovaná horoškola ČHS s více než 25 letou historií.</span
+          >
         </p>
       </div>
     </header>
