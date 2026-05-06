@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Horolezecká škola Sherpa Climb — TODO_NAZEV</title>
+    <meta
+      name="description"
+      content="Horolezecký kurz pro začátečníky i pokročilé. Zkušení instruktoři, krásné skály, malá skupina."
+    />
+    <meta property="og:title" content="Horolezecká škola Sherpa Climb" />
+    <meta
+      property="og:description"
+      content="Horolezecký kurz pro začátečníky i pokročilé."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="img/hero/hero-1.webp" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%97%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="dist/output.css" />
+    <script src="js/hero-list.js"></script>
+  </head>
+  <body>
+    <!-- ========== HERO (full-bleed photo + integrated nav) ========== -->
+    <header id="top" class="hero">
+      <div class="hero__media">
+        <img id="hero-img" alt="" />
+        <script>
+          (function () {
+            var l = window.HERO_IMAGES;
+            var p =
+              l && l.length
+                ? l[Math.floor(Math.random() * l.length)]
+                : "img/hero/hero-1.webp";
+            document.getElementById("hero-img").src = p;
+          })();
+        </script>
+      </div>
+      <nav class="hero__nav" aria-label="Hlavní navigace">
+        <div class="hero__nav-links">
+          <a href="#o-kurzu">O kurzu</a>
+          <a href="#galerie">Galerie</a>
+          <a href="#instruktori">Instruktoři</a>
+        </div>
+        <div class="hero__nav-socials">
+          <a
+            href="TODO_INSTAGRAM_URL"
+            target="_blank"
+            rel="noopener"
+            aria-label="Instagram"
+            class="hero__nav-icon"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+            </svg>
+          </a>
+          <a
+            href="TODO_FACEBOOK_URL"
+            target="_blank"
+            rel="noopener"
+            aria-label="Facebook"
+            class="hero__nav-icon"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+              />
+            </svg>
+          </a>
+        </div>
+      </nav>
+      <div class="hero__content container-x">
+        <p class="eyebrow reveal">Horolezecká škola Sherpa Climb</p>
+        <h1 class="h-display reveal mt-4 max-w-4xl">
+          Nauč se lézt<br />tam, kde&nbsp;to&nbsp;dává smysl.
+        </h1>
+        <p
+          class="reveal mt-6 max-w-2xl text-lg sm:text-xl"
+          style="color: var(--color-ink-soft)"
+        >
+          Jsme Garantovaná horoškola ČHS s více než 25 letou historií.
+        </p>
+      </div>
+    </header>
+
+    <!-- ========== O KURZU ========== -->
+    <section id="o-kurzu" class="container-x py-20 sm:py-28">
+      <div class="grid gap-12 lg:grid-cols-12">
+        <div class="reveal lg:col-span-5">
+          <p class="eyebrow">O kurzu</p>
+          <h2 class="h-section mt-3">Co se vlastně naučíš?</h2>
+        </div>
+        <div class="reveal lg:col-span-7">
+          <p
+            class="text-lg leading-relaxed"
+            style="color: var(--color-ink-soft)"
+          >
+            Devět měsíců od prvního uzlu po samostatný vícedélkový výstup v
+            horách: metodika, umělá stěna, skály, pískovce, vlastní jištění,
+            týden v Alpách nebo Tatrách. Staň se součástí skvělé party lidí a
+            získej správné a <b>bezpečné</b> lezecké návyky pod dohledem
+            certifikovaných instruktorů ČHS.
+          </p>
+          <ul class="mt-8 grid gap-4 sm:grid-cols-2">
+            <li
+              class="rounded-2xl border p-5"
+              style="border-color: var(--color-line)"
+            >
+              <p class="text-sm font-medium">Termín</p>
+              <p class="mt-1 text-base" style="color: var(--color-ink-soft)">
+                Listopad až Srpen
+              </p>
+            </li>
+            <li
+              class="rounded-2xl border p-5"
+              style="border-color: var(--color-line)"
+            >
+              <p class="text-sm font-medium">Místo</p>
+              <p class="mt-1 text-base" style="color: var(--color-ink-soft)">
+                Skalní oblasti v Čechách.
+              </p>
+            </li>
+            <li
+              class="rounded-2xl border p-5"
+              style="border-color: var(--color-line)"
+            >
+              <p class="text-sm font-medium">Pro koho</p>
+              <p class="mt-1 text-base" style="color: var(--color-ink-soft)">
+                Začátečníci i&nbsp;mírně&nbsp;pokročilí
+              </p>
+            </li>
+            <li
+              class="rounded-2xl border p-5"
+              style="border-color: var(--color-line)"
+            >
+              <p class="text-sm font-medium">Kapacita</p>
+              <p class="mt-1 text-base" style="color: var(--color-ink-soft)">
+                24
+              </p>
+            </li>
+          </ul>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a
+              class="btn-primary"
+              href="https://docs.google.com/forms/d/e/1FAIpQLScWavNPB24phXCRQ4YGinbm1yw7xo9ROLhhgiipOakQMAizcQ/viewform"
+              target="_blank"
+              rel="noopener"
+              >Přihlásit se</a
+            >
+            <a
+              class="btn-ghost"
+              href="https://docs.google.com/document/d/1nzmwukbehULWtQSjsXtpQ9jIoMzbFktNsybkmhLN6X4/edit?usp=sharing"
+              target="_blank"
+              rel="noopener"
+              >Detailní info (Google Docs)</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== GALERIE ========== -->
+    <section
+      id="galerie"
+      class="py-20 sm:py-28"
+      style="background: var(--color-paper-dim)"
+    >
+      <div class="container-x">
+        <div class="reveal max-w-2xl">
+          <p class="eyebrow">Galerie</p>
+          <h2 class="h-section mt-3">Tohle tě čeká.</h2>
+          <p class="mt-4 text-lg" style="color: var(--color-ink-soft)">
+            Pár momentek z minulých kurzů.
+          </p>
+        </div>
+
+        <div class="reveal mt-12 gallery-col">
+          <figure>
+            <button
+              type="button"
+              class="gallery-thumb"
+              data-full="img/gallery/IMG_1153.webp"
+              aria-label="Zvětšit fotku"
+            >
+              <img
+                src="img/gallery/IMG_1153.webp"
+                alt=""
+                loading="lazy"
+                class="w-full rounded-xl"
+              />
+            </button>
+          </figure>
+          <figure>
+            <button
+              type="button"
+              class="gallery-thumb"
+              data-full="img/gallery/IMG_2702.webp"
+              aria-label="Zvětšit fotku"
+            >
+              <img
+                src="img/gallery/IMG_2702.webp"
+                alt=""
+                loading="lazy"
+                class="w-full rounded-xl"
+              />
+            </button>
+          </figure>
+          <figure>
+            <button
+              type="button"
+              class="gallery-thumb"
+              data-full="img/gallery/IMG_4456.webp"
+              aria-label="Zvětšit fotku"
+            >
+              <img
+                src="img/gallery/IMG_4456.webp"
+                alt=""
+                loading="lazy"
+                class="w-full rounded-xl"
+              />
+            </button>
+          </figure>
+          <figure>
+            <button
+              type="button"
+              class="gallery-thumb"
+              data-full="img/gallery/IMG_4861.webp"
+              aria-label="Zvětšit fotku"
+            >
+              <img
+                src="img/gallery/IMG_4861.webp"
+                alt=""
+                loading="lazy"
+                class="w-full rounded-xl"
+              />
+            </button>
+          </figure>
+          <figure>
+            <button
+              type="button"
+              class="gallery-thumb"
+              data-full="img/gallery/IMG_6559.webp"
+              aria-label="Zvětšit fotku"
+            >
+              <img
+                src="img/gallery/IMG_6559.webp"
+                alt=""
+                loading="lazy"
+                class="w-full rounded-xl"
+              />
+            </button>
+          </figure>
+          <figure>
+            <button
+              type="button"
+              class="gallery-thumb"
+              data-full="img/gallery/PXL_20250824_134719860.webp"
+              aria-label="Zvětšit fotku"
+            >
+              <img
+                src="img/gallery/PXL_20250824_134719860.webp"
+                alt=""
+                loading="lazy"
+                class="w-full rounded-xl"
+              />
+            </button>
+          </figure>
+          <figure>
+            <button
+              type="button"
+              class="gallery-thumb"
+              data-full="img/gallery/PXL_20251228_113722256.webp"
+              aria-label="Zvětšit fotku"
+            >
+              <img
+                src="img/gallery/PXL_20251228_113722256.webp"
+                alt=""
+                loading="lazy"
+                class="w-full rounded-xl"
+              />
+            </button>
+          </figure>
+          <figure>
+            <button
+              type="button"
+              class="gallery-thumb"
+              data-full="img/gallery/PXL_20251228_125141378.webp"
+              aria-label="Zvětšit fotku"
+            >
+              <img
+                src="img/gallery/PXL_20251228_125141378.webp"
+                alt=""
+                loading="lazy"
+                class="w-full rounded-xl"
+              />
+            </button>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== INSTRUKTOŘI ========== -->
+    <section id="instruktori" class="container-x py-20 sm:py-28">
+      <div class="reveal flex flex-wrap items-end justify-between gap-6">
+        <div class="max-w-2xl">
+          <p class="eyebrow">Naši instruktoři</p>
+          <h2 class="h-section mt-3">Lidi, se kterými polezeš.</h2>
+        </div>
+      </div>
+
+      <div
+        id="instructor-grid"
+        class="reveal mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5"
+        role="list"
+        aria-label="Instruktoři kurzu"
+      >
+        <!-- vyplní se z js/instructors.js -->
+      </div>
+    </section>
+
+    <div id="gallery-overlay" class="gallery-overlay" aria-hidden="true">
+      <button
+        type="button"
+        class="gallery-overlay__nav gallery-overlay__nav--prev"
+        data-dir="prev"
+        aria-label="Předchozí fotka"
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M15 18l-6-6 6-6" />
+        </svg>
+      </button>
+      <img class="gallery-overlay__img" alt="" />
+      <button
+        type="button"
+        class="gallery-overlay__nav gallery-overlay__nav--next"
+        data-dir="next"
+        aria-label="Další fotka"
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M9 6l6 6-6 6" />
+        </svg>
+      </button>
+    </div>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script type="module" src="js/instructors.js"></script>
+    <script type="module" src="js/gallery.js"></script>
+  </body>
+</html>
