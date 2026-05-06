@@ -2,10 +2,11 @@
 # Zpracování fotek: zmenšení a sjednocení velikosti, výstup ve WebP.
 #
 # Vstup:
-#   img/raw/hero/*.{jpg,jpeg,png,heic}        -> img/hero/<name>.webp           (max 2400w)
-#   img/raw/gallery/*.{jpg,jpeg,png,heic}     -> img/gallery/<name>.webp        (max 1600w)
-#   img/raw/instructors/<slug>.{jpg,...}      -> img/instructors/<slug>.webp    (čtverec 400)
-#                                              + img/instructors/<slug>@2x.webp (čtverec 800)
+#   img/raw/hero/horizontal_*.{jpg,...}       -> img/hero/horizontal_<name>.webp (max 2400w, široké obr.)
+#   img/raw/hero/vertical_*.{jpg,...}         -> img/hero/vertical_<name>.webp   (max 1600w, mobil)
+#   img/raw/gallery/*.{jpg,jpeg,png,heic}     -> img/gallery/<name>.webp         (max 1600w)
+#   img/raw/instructors/<slug>.{jpg,...}      -> img/instructors/<slug>.webp     (čtverec 400)
+#                                              + img/instructors/<slug>@2x.webp  (čtverec 800)
 #
 # Idempotentní: přeskočí soubory, jejichž výstup už existuje a je novější než vstup.
 # Vyžaduje: ImageMagick 7+ (příkaz `magick`).
@@ -31,14 +32,20 @@ needs_rebuild() {
 count=0; skipped=0
 
 # ---- Hero ----
+# Soubory s prefixem horizontal_ jsou pro široké obrazovky (širší max šířka),
+# soubory s prefixem vertical_ jsou portrétové fotky pro mobil.
 shopt -s nullglob nocaseglob
 for src in img/raw/hero/*.{jpg,jpeg,png,heic,webp}; do
   base="$(basename "$src")"
   name="${base%.*}"
   dst="img/hero/${name}.webp"
+  case "$base" in
+    vertical_*) max_w='1600x>' ;;
+    *)          max_w='2400x>' ;;
+  esac
   if needs_rebuild "$src" "$dst"; then
     echo "hero  -> $dst"
-    magick "$src" -auto-orient -resize '2400x>' -strip -quality 82 "$dst"
+    magick "$src" -auto-orient -resize "$max_w" -strip -quality 82 "$dst"
     count=$((count+1))
   else
     skipped=$((skipped+1))
@@ -46,15 +53,18 @@ for src in img/raw/hero/*.{jpg,jpeg,png,heic,webp}; do
 done
 
 # ---- Hero list (for random selection on page load) ----
-# Pulls from both img/hero/ and img/gallery/ so all available photos
-# can rotate as the hero background. Loaded synchronously in <head>
-# so the random pick happens before the browser starts loading the
-# hero <img>, avoiding a flash of the wrong image.
+# Two arrays so the page can pick a portrait crop on mobile and a wider
+# shot on desktop. Splits img/hero/ by filename prefix (horizontal_ vs
+# vertical_). Loaded synchronously in <head> so the random pick happens
+# before the browser starts loading the hero <img>, avoiding a flash of
+# the wrong image.
 manifest="js/hero-list.js"
-{
-  printf 'window.HERO_IMAGES = ['
-  first=1
-  for f in img/hero/*.webp img/gallery/*.webp; do
+emit_array() {
+  local var="$1"; shift
+  local glob="$1"
+  printf 'window.%s = [' "$var"
+  local first=1
+  for f in $glob; do
     [[ -f "$f" ]] || continue
     if [[ $first -eq 1 ]]; then
       printf '\n  "%s"' "$f"
@@ -64,6 +74,10 @@ manifest="js/hero-list.js"
     fi
   done
   printf '\n];\n'
+}
+{
+  emit_array HERO_IMAGES_DESKTOP 'img/hero/horizontal_*.webp'
+  emit_array HERO_IMAGES_MOBILE  'img/hero/vertical_*.webp'
 } > "$manifest"
 echo "hero  -> $manifest"
 

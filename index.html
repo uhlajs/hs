@@ -14,7 +14,7 @@
       content="Horolezecký kurz pro začátečníky i pokročilé."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="img/hero/hero-1.webp" />
+    <meta property="og:image" content="img/hero/horizontal_hero-1.webp" />
     <link
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%97%3C/text%3E%3C/svg%3E"
@@ -35,11 +35,15 @@
         <img id="hero-img" alt="" />
         <script>
           (function () {
-            var l = window.HERO_IMAGES;
+            var isMobile = window.matchMedia("(max-width: 639px)").matches;
+            var l = isMobile
+              ? window.HERO_IMAGES_MOBILE
+              : window.HERO_IMAGES_DESKTOP;
+            if (!l || !l.length) l = window.HERO_IMAGES_DESKTOP;
             var p =
               l && l.length
                 ? l[Math.floor(Math.random() * l.length)]
-                : "img/hero/hero-1.webp";
+                : "img/hero/horizontal_hero-1.webp";
             document.getElementById("hero-img").src = p;
           })();
         </script>
@@ -105,14 +109,14 @@
         </p>
         <h1 class="h-display reveal mt-4 max-w-4xl">
           <span class="hero__hl"
-            >Nauč se lézt<br />tam, kde&nbsp;to&nbsp;dává smysl.</span
+            >Nauč se lézt tam, kde&nbsp;to&nbsp;dává smysl.</span
           >
         </h1>
         <p
           class="reveal mt-6 max-w-2xl text-lg sm:text-xl"
           style="color: var(--color-ink-soft)"
         >
-          Jsme Garantovaná horoškola ČHS s více než 25 letou historií.
+          Jsme garantovaná horoškola ČHS s více než 25 letou historií.
         </p>
       </div>
     </header>
