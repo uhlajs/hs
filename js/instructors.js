@@ -17,6 +17,13 @@ export const instructors = [
     bio: "Horolezectví se věnuje od roku 1999 a je lektorem Metodické komise ČHS. Má rád hory, kde čerpá energii, a lezení, protože na skalách se sejde vždy dobrá parta a o zábavu není nouze. Baví ho výcvik v létě i v zimě a miluje lyže.",
   },
   {
+    slug: "martin-honzik",
+    name: "Martin Honzík",
+    role: "Odborný garant SAFETY ACADEMY SYSTEM",
+    quote: "",
+    bio: "Od roku 2000 pracuje jako vedoucí letecký záchranář na Letecké záchranné službě Hradec Králové, kde má na starosti výcvik posádek v oblasti speciálních leteckých činností (lanové techniky při záchraně s vrtulníkem, lety s podvěsem) a v problematice lavinových nehod. Externí instruktor BATLS/BARTS na Fakultě vojenského zdravotnictví Univerzity obrany v Hradci Králové. Člen Lékařské a Metodické komise ČHS, instruktor horolezectví ČHS, akreditovaný instruktor skalního lezení a skialpinismu. Člen výboru Společnosti horské medicíny a Air Rescue Commission ICAR. Mnoho let se podílí na lavinové prevenci, organizaci záchrany při lavinových nehodách a tvorbě metodických postupů.",
+  },
+  {
     slug: "radan-keil",
     name: "Radan Keil",
     role: "Instruktor ČHS (HAL), člen Metodické komise ČHS",
@@ -130,6 +137,20 @@ export const instructors = [
   },
 ];
 
+// Inline SVG fallback used when an instructor photo file is missing.
+const PHOTO_PLACEHOLDER =
+  "data:image/svg+xml;utf8," +
+  encodeURIComponent(
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+      <rect width="400" height="400" fill="#f1f0ea"/>
+      <circle cx="200" cy="160" r="62" fill="#d6d2c4"/>
+      <path d="M70 360c0-72 58-118 130-118s130 46 130 118z" fill="#d6d2c4"/>
+      <text x="200" y="390" text-anchor="middle"
+            font-family="Inter,system-ui,sans-serif" font-size="18"
+            fill="#4a4a4d">Foto bude doplněno</text>
+    </svg>`,
+  );
+
 const byslug = new Map(instructors.map((i) => [i.slug, i]));
 
 function renderGrid() {
@@ -141,7 +162,8 @@ function renderGrid() {
     <button class="instructor-tile" type="button" data-slug="${i.slug}" aria-expanded="false" aria-label="${i.name} — rozbalit detail">
       <img src="img/instructors/${i.slug}.webp"
            srcset="img/instructors/${i.slug}.webp 1x, img/instructors/${i.slug}@2x.webp 2x"
-           alt="${i.name}" loading="lazy" width="400" height="400" />
+           alt="${i.name}" loading="lazy" width="400" height="400"
+           onerror="this.onerror=null;this.removeAttribute('srcset');this.src='${PHOTO_PLACEHOLDER}'" />
       <span class="label">${i.name}</span>
     </button>
   `,
@@ -174,6 +196,10 @@ function fillPanel(slug) {
   const i = byslug.get(slug);
   if (!i || !panel) return;
   const photo = panel.querySelector(".instructor-detail__photo");
+  photo.onerror = () => {
+    photo.onerror = null;
+    photo.src = PHOTO_PLACEHOLDER;
+  };
   photo.src = `img/instructors/${i.slug}@2x.webp`;
   photo.alt = i.name;
   panel.querySelector("[data-field=role]").textContent = i.role || "";
@@ -308,8 +334,28 @@ function wireReveal() {
   els.forEach((el) => io.observe(el));
 }
 
+function maybeExpandFromHash() {
+  const m = location.hash.match(/^#instruktor-(.+)$/);
+  if (!m) return;
+  const slug = m[1];
+  const tile = document.querySelector(`[data-slug="${slug}"]`);
+  if (!tile) return;
+  tile.scrollIntoView({ behavior: "smooth", block: "center" });
+  setTimeout(() => {
+    if (openSlug !== slug) expandFor(slug);
+  }, 350);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   renderGrid();
   wireDetail();
   wireReveal();
+  maybeExpandFromHash();
+});
+
+window.addEventListener("hashchange", maybeExpandFromHash);
+document.addEventListener("click", (e) => {
+  if (e.target.closest('a[href^="#instruktor-"]')) {
+    setTimeout(maybeExpandFromHash, 0);
+  }
 });

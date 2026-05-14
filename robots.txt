@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://uhlajs.github.io/hs/sitemap.xml
