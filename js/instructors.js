@@ -66,6 +66,13 @@ export const instructors = [
     bio: "Juniorský závodník, pískař, překližkář, milovník spárových lišejů, sportovkář, občasný sólista, budoucí bouldrista (a otec rodiny), vyznavač jizerského krystalu i yosemitských stěn a především krásných linek. Lezu od osmi let, instruktorem a trenérem jsem od roku 2018. Věnuji se především lezecké technice (protože sílu nemám) ve smyslu pohybu využívajícího přirozených svalových souher.",
   },
   {
+    slug: "honza-holan",
+    name: "Honza Holan",
+    role: "Instruktor ČHS (RCI)",
+    quote: "Lezení není jen sport, je to životní styl, který se musí zažít.",
+    bio: "S lezením jsem začal před mnoha lety s kamarády náhodou na stěně, zrovna když byla chuť vyplnit volný sobotní večer. Od té chvíle jsem věděl, že u lezení zůstanu. Pak už to šlo rychle, první žula, první písky, dlouhé tradiční cesty v Tatrách a výjezdy po celém světě jak jinak než za lezením. Na sportovkách se moc neuvidíme, za to na písku, ve spárách nebo v tradičních oblastech jsem více než doma. Miluji lezení ve všech směrech a všech jeho podobách, hlavně kvůli lidem kolem něj.",
+  },
+  {
     slug: "tomas-blaha",
     name: "Tomáš Bláha",
     role: "Instruktor ČHS (SCI)",
